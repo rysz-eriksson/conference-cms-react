@@ -1,10 +1,14 @@
 import React from 'react';
+import SubmitForm from './components/submitForm';
+import LecturesList from './components/lecturesList';
 import './App.css';
 
 function App() {
+  
   return (
     <div className="App">
-      <h1>This is my App</h1>
+      <SubmitForm />
+      <LecturesList />
     </div>
   );
 }
