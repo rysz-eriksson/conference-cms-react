@@ -1,122 +1,122 @@
 export default [
     {
-      title: 'The Haunting Of The Smart House',
-      lecturerName: 'Tomek Nowicki',
-      imageUrl: 'Tomasz_Nowicki.jpg',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'The Haunting Of The Smart House',
+      lecturer_name: 'Tomek Nowicki',
+      image_url: 'Tomasz_Nowicki.jpg',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'Edge Computing: One Too Many Questions',
-      lecturerName: 'Melissa Chavez Torres',
-      imageUrl: 'Melissa_Chavez_Torres.jpeg',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'Edge Computing: One Too Many Questions',
+      lecturer_name: 'Melissa Chavez Torres',
+      image_url: 'Melissa_Chavez_Torres.jpeg',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'Ethical Machine Learning',
-      lecturerName: 'Milena Aragon Wendland',
-      imageUrl: 'Milena_Aragon_Wendland.jpg',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'Ethical Machine Learning',
+      lecturer_name: 'Milena Aragon Wendland',
+      image_url: 'Milena_Aragon_Wendland.jpg',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'Why Imperfection Is Better?',
-      lecturerName: 'Maciej Kubicki',
-      imageUrl: 'Maciej_Kubicki.jpg',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'Why Imperfection Is Better?',
+      lecturer_name: 'Maciej Kubicki',
+      image_url: 'Maciej_Kubicki.jpg',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'Data Consistency In Complex Systems',
-      lecturerName: 'Joris Bouwsma',
-      imageUrl: 'Joris_Bouwsma.jpg',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'Data Consistency In Complex Systems',
+      lecturer_name: 'Joris Bouwsma',
+      image_url: 'Joris_Bouwsma.jpg',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'Compliance And The Art Of Storytelling',
-      lecturerName: 'Molly Young',
-      imageUrl: 'Molly_Elise_Young.jpg',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'Compliance And The Art Of Storytelling',
+      lecturer_name: 'Molly Young',
+      image_url: 'Molly_Elise_Young.jpg',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'Quantum Computers Explained',
-      lecturerName: 'Tomasz Stopa',
-      imageUrl: 'Tomasz_Stopa.JPG',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'Quantum Computers Explained',
+      lecturer_name: 'Tomasz Stopa',
+      image_url: 'Tomasz_Stopa.JPG',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'KEYNOTE: How People Make Risk Choices?',
-      lecturerName: 'Andy Ellis',
-      imageUrl: 'Andy_Ellis.jpg',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'KEYNOTE: How People Make Risk Choices?',
+      lecturer_name: 'Andy Ellis',
+      image_url: 'Andy_Ellis.jpg',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'Data Drift: Machine Learning And Unlearning',
-      lecturerName: 'Christophe Salperwyck',
-      imageUrl: 'Christophe_Salperwyck.jpg',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'Data Drift: Machine Learning And Unlearning',
+      lecturer_name: 'Christophe Salperwyck',
+      image_url: 'Christophe_Salperwyck.jpg',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'Delevoping Visual Cloud Services Faster With Right SDKs',
-      lecturerName: 'Petar Torre',
-      imageUrl: 'Petar_Torre.png',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'Delevoping Visual Cloud Services Faster With Right SDKs',
+      lecturer_name: 'Petar Torre',
+      image_url: 'Petar_Torre.png',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'Artificial Intelligence (AI) In The Context Of Emerging Legal Issues',
-      lecturerName: 'R. Bieda & G. Wiktorzak   ',
-      imageUrl: 'Gabriela_Wiktorzak.JPG',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'Artificial Intelligence (AI) In The Context Of Emerging Legal Issues',
+      lecturer_name: 'R. Bieda & G. Wiktorzak   ',
+      image_url: 'Gabriela_Wiktorzak.JPG',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'EZPATH: A New Safety-Review Process For Akamai Products',
-      lecturerName: 'Jonathan Herzog',
-      imageUrl: 'Jonathan_Herzog.png',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'EZPATH: A New Safety-Review Process For Akamai Products',
+      lecturer_name: 'Jonathan Herzog',
+      image_url: 'Jonathan_Herzog.png',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'Kubernetes. Kuber-what-is?',
-      lecturerName: 'Rafal Banaszkiewicz',
-      imageUrl: 'Rafal_Banaszkiewicz.jpg',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'Kubernetes. Kuber-what-is?',
+      lecturer_name: 'Rafal Banaszkiewicz',
+      image_url: 'Rafal_Banaszkiewicz.jpg',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'U Want To Hackz? N00BSecurity Labz',
-      lecturerName: 'S. Jakubowski & B. Jakubowski',
-      imageUrl: 'Bartosz_Jakubowski.jpg',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'U Want To Hackz? N00BSecurity Labz',
+      lecturer_name: 'S. Jakubowski & B. Jakubowski',
+      image_url: 'Bartosz_Jakubowski.jpg',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'Hacking Ecology',
-      lecturerName: 'Theodor Sperlea',
-      imageUrl: 'Theodor_Sperlea.jpg',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'Hacking Ecology',
+      lecturer_name: 'Theodor Sperlea',
+      image_url: 'Theodor_Sperlea.jpg',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'Spectre, Meltdown And The Ghost In The Machine',
-      lecturerName: 'James Kretchmar',
-      imageUrl: 'James_Kretchmar.png',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'Spectre, Meltdown And The Ghost In The Machine',
+      lecturer_name: 'James Kretchmar',
+      image_url: 'James_Kretchmar.png',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'On-call Burnout Is A Real Thing',
-      lecturerName: 'Piotr Stachowicz',
-      imageUrl: 'Piotr_Stachowicz.jpg',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'On-call Burnout Is A Real Thing',
+      lecturer_name: 'Piotr Stachowicz',
+      image_url: 'Piotr_Stachowicz.jpg',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'Internet Rush Hour - A Behind The Scenes Look',
-      lecturerName: 'Larry Underhill',
-      imageUrl: 'Larry_Underhill.jpg',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'Internet Rush Hour - A Behind The Scenes Look',
+      lecturer_name: 'Larry Underhill',
+      image_url: 'Larry_Underhill.jpg',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'Asking About Video Quality',
-      lecturerName: 'Lucjan Janowski',
-      imageUrl: 'Lucjan_Janowski.JPG',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'Asking About Video Quality',
+      lecturer_name: 'Lucjan Janowski',
+      image_url: 'Lucjan_Janowski.JPG',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
     {
-      title: 'My Smart Home On Akamai Platform',
-      lecturerName: 'Szymon Kwapiszewski',
-      imageUrl: 'Szymon_Kwapiszewski.jpg',
-      streamUrl: 'https://example.com/stream/master.m3u8'
+      stream_title: 'My Smart Home On Akamai Platform',
+      lecturer_name: 'Szymon Kwapiszewski',
+      image_url: 'Szymon_Kwapiszewski.jpg',
+      stream_url: 'https://example.com/stream/master.m3u8'
     },
   ]

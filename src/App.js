@@ -1,6 +1,6 @@
 import React from 'react';
 import SubmitForm from './components/submitForm';
-import LecturesList from './components/lecturesList';
+import LecturesListVod from './components/lecturesListVod';
 import './App.css';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <SubmitForm />
-      <LecturesList />
+      <LecturesListVod />
     </div>
   );
 }

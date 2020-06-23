@@ -1,6 +1,6 @@
 import React from 'react';
 import database from '../firebase/firebase';
-import LectureItem from './lecturesItem';
+import LectureItemVod from './lecturesItemVod';
 
 export default class LecturesList extends React.Component {
     state = {
@@ -33,7 +33,7 @@ export default class LecturesList extends React.Component {
       </thead>
       <tbody>
         {this.state.vodLibrary.map((item) => (
-        <LectureItem key={item.id} lecture={item} />
+        <LectureItemVod key={item.id} lecture={item} />
         ))}
       </tbody>
     </table>
