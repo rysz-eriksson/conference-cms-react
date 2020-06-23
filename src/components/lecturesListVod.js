@@ -2,7 +2,7 @@ import React from 'react';
 import database from '../firebase/firebase';
 import LectureItemVod from './lecturesItemVod';
 
-export default class LecturesList extends React.Component {
+export default class LecturesListVod extends React.Component {
     state = {
         vodLibrary: []
     }
