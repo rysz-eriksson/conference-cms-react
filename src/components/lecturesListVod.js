@@ -25,7 +25,7 @@ export default class LecturesListVod extends React.Component {
             <table id="vod-list">
       <thead>
         <tr>
-          <th>content_id</th>
+          <th>Lp.</th>
           <th>stream_id</th>
           <th>title</th>
           <th>lecturer_name</th>
@@ -34,8 +34,8 @@ export default class LecturesListVod extends React.Component {
         </tr>
       </thead>
       <tbody>
-        {this.state.vodLibrary.map((item) => (
-        <LectureItemVod key={item.id} lecture={item} />
+        {this.state.vodLibrary.map((item, index) => (
+        <LectureItemVod key={item.id} lecture={item} index={index}/>
         ))}
       </tbody>
     </table>
