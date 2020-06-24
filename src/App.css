@@ -1,0 +1,137 @@
+.container {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    padding-bottom: 2.5rem;
+  }
+
+.form {
+    width: 600px;
+    margin: 40px auto;
+    border: #f18700 solid 2px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    margin: 40px 40px 0 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+
+  }
+
+  .form-row input[type='text'] {
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    width: 250px;
+    height: initial;
+    border-radius: 3px;
+    width: 100%;
+    padding: 7px;
+    font-size: 14px;
+  }
+
+  .radio-button {
+    display: block;
+    border: none;
+    margin: 40px auto 0 240px;
+  } 
+
+  input[type="radio"] {
+      margin: 5px;
+  }
+
+input[type='submit']{
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    text-align: center;
+    margin: 40px auto;
+    color:  #f18700;
+  
+    background-color: white;
+    border: solid 1px  #f18700;
+    border-radius: 3px;
+  
+    padding: 10px 23px;
+    cursor: pointer;
+    transition: .15s ease-in-out 
+  }
+
+  input[type='submit']:active {
+    transform: scale(0.99);
+  }
+
+  input[type='submit']:hover {
+    background-color: #f18700;
+    color: white;
+  }
+
+  input[type='submit']:focus {
+    box-shadow: 0 0 0 0.2rem rgba(190, 106, 0, 0.5);
+    outline-color: rgba(190, 106, 0, 0.5);
+    background-color: #d87900 !important; 
+  }
+
+  .table-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  box-shadow: 0px 1px 3px 2px rgba(0,0,0,0.7);
+}
+
+
+th, td {
+  text-align: left;
+  vertical-align: center;
+  padding: 1rem;
+}
+
+tr {
+  transition: all .3s ease;
+  border-bottom: 1px solid grey;
+}
+
+tr:nth-child(odd) {
+  background-color: rgba(241, 135, 0, 0.3);
+}
+
+tr:nth-child(odd):hover {
+  background-color: rgba(241, 135, 0, 0.4);
+}
+
+tr:nth-child(even) {
+  background-color: rgba(241, 135, 0, .6);
+}
+
+tr:nth-child(even):hover {
+  background-color: rgba(241, 135, 0, .7);
+}
+ 
+thead {
+  background-color: rgb(241, 135, 0)
+}
+
+.track_id,
+.content_id {
+  text-align: center;
+}
+
+button.delete {
+  padding: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+
+button.delete:focus {
+  outline-color: #f18700;
+}
