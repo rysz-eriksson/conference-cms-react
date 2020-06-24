@@ -9,13 +9,15 @@ export default class LecturesListVod extends React.Component {
     componentDidMount() {
         database.ref('vod-library').on('value', (snapshot) => {
             let lectures = []
-            snapshot.forEach((childSnap) => {
-                lectures.push({
-                    id: childSnap.key,
-                    ...childSnap.val()
+            if (snapshot.val() !== null) {
+                snapshot.forEach((childSnap) => {
+                    lectures.push({
+                        id: childSnap.key,
+                        ...childSnap.val()
+                    })
                 })
-                this.setState({vodLibrary: [...lectures]})
-        })
+            }
+            this.setState({vodLibrary: [...lectures]})
     })
 }
     render() {
