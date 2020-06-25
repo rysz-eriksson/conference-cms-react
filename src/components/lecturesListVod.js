@@ -18,7 +18,9 @@ export default class LecturesListVod extends React.Component {
                 })
             }
             this.setState({vodLibrary: [...lectures]})
-    })
+    }, (err) => {
+        alert(err)
+        })
 }
     render() {
         return (

@@ -16,8 +16,10 @@ export default class LecturesListLive extends React.Component {
                 })
                 this.setState({liveLibrary: [...lectures]})
         })
-    })
-}
+    }, (err) => {
+        alert(err)
+        })
+    }
     render() {
         return (
             <table id="live-list">

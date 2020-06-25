@@ -2,6 +2,11 @@ import React from 'react';
 import predefinedLect from '../data/lectures-list';
 import database from '../firebase/firebase';
 
+export const handleError = (err) => {
+  alert('Action failed, see details in the console')
+  console.log(err)
+} 
+
 export default class SubmitForm extends React.Component {
   constructor(props) {
     super(props);
@@ -23,18 +28,32 @@ export default class SubmitForm extends React.Component {
         stream_title: '',
         stream_url: ''
       })
-      console.log('done')
     }
     e.preventDefault()
     if (this.state.content_type === 'vod') {
-      database.ref('vod-library').push({...this.state})
+      database.ref('vod-library').push({
+        stream_url: this.state.stream_url,
+        stream_title: this.state.stream_title,
+        lecturer_name: this.state.lecturer_name,
+        image_url: this.state.image_url
+      })
       .then(() => {
         clearState()
       })
+      .catch((err) => {
+        handleError(err)
+      })
     } else {
-      database.ref(`live-library/${this.state.track_num}`).set({...this.state})
+      database.ref(`live-library/${this.state.track_num}`).set({
+        stream_url: this.state.stream_url,
+        stream_title: this.state.stream_title,
+        lecturer_name: this.state.lecturer_name,
+      })
       .then(() => {
         clearState()
+      })
+      .catch((err) => {
+        handleError(err)
       })
     }
 
