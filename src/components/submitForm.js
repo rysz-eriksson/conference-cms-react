@@ -1,12 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import predefinedLect from '../data/lectures-list';
 import database from '../firebase/firebase';
 import styled from 'styled-components';
-
-export const handleError = (err) => {
-  alert('Action failed, see details in the console')
-  console.log(err)
-} 
 
   const Form = styled.form`
   width: 600px;
@@ -44,8 +39,7 @@ export const handleError = (err) => {
 
   input[type='submit']:focus {
     outline-color: rgba(190, 106, 0, 0.5);
-  }
-  `
+  }`
 
   const FormRow = styled.div`
   margin: 40px 40px 0 40px;
@@ -63,8 +57,7 @@ export const handleError = (err) => {
     width: 100%;
     padding: 7px;
     font-size: 14px;
-  }
-  `
+  }`
 
   const RadioButton = styled.fieldset`
   display: block;
@@ -73,25 +66,23 @@ export const handleError = (err) => {
 
   input[type="radio"] {
     margin: 5px;
-}
-  `
+}`
 
-export default class SubmitForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.fillInForms = this.fillInForms.bind(this);
-    this.state = {
-      content_type: 'vod',
-      track_num: '1'
-    }
-  }
+export const handleError = (err) => {
+  alert('Action failed, see details in the console')
+  console.log(err)
+} 
 
-  handleSubmit(e) {
+export default () => {
+  const [ track_num, setTrackNum ] = useState('1')
+  const [ content_type, setContentType ] = useState('vod')
+  const [ record, setRecord ] = useState({})
+
+  const handleSubmit = (e) => {
     const clearState = () => {
-      this.setState({
-        content_type: 'vod',
-        track_num: '1',
+      setContentType('vod')
+      setTrackNum('1')
+      setRecord({
         image_url: '',
         lecturer_name: '',
         stream_title: '',
@@ -99,13 +90,8 @@ export default class SubmitForm extends React.Component {
       })
     }
     e.preventDefault()
-    if (this.state.content_type === 'vod') {
-      database.ref('vod-library').push({
-        stream_url: this.state.stream_url,
-        stream_title: this.state.stream_title,
-        lecturer_name: this.state.lecturer_name,
-        image_url: this.state.image_url
-      })
+    if (content_type === 'vod') {
+      database.ref('vod-library').push(record)
       .then(() => {
         clearState()
       })
@@ -113,10 +99,10 @@ export default class SubmitForm extends React.Component {
         handleError(err)
       })
     } else {
-      database.ref(`live-library/${this.state.track_num}`).set({
-        stream_url: this.state.stream_url,
-        stream_title: this.state.stream_title,
-        lecturer_name: this.state.lecturer_name,
+      database.ref(`live-library/${track_num}`).set({
+        stream_url: record.stream_url,
+        stream_title: record.stream_title,
+        lecturer_name: record.lecturer_name,
       })
       .then(() => {
         clearState()
@@ -125,26 +111,23 @@ export default class SubmitForm extends React.Component {
         handleError(err)
       })
     }
-
   }
 
-  handleChange = (e) => {
+  const handleChange = (e) => {
     const { target: { name, value } } = e
-    this.setState({ [name]: value })
+    setRecord({...record, [name]: value })
   }
 
-  fillInForms(e) {
+  const fillInForms = (e) => {
     let selectedName = e.target.value
-    this.setState({...predefinedLect.find(item => item.lecturer_name === selectedName)})
+    setRecord({...predefinedLect.find(item => item.lecturer_name === selectedName)})
   }
 
-
-    render() {
         return (
-        <Form method="POST" id="myForm" className="form" onSubmit={this.handleSubmit}>
+        <Form method="POST" id="myForm" className="form" onSubmit={handleSubmit}>
             <FormRow>
                 <label htmlFor="lecturer_name">Lecturer Name</label>
-                  <select id="lecturer_name" name="lecturer_name" onChange={this.fillInForms}>
+                  <select id="lecturer_name" name="lecturer_name" onChange={fillInForms}>
                     <option value=''>Select name</option>
                     {predefinedLect.map(({ lecturer_name }) => (
                       <option value={lecturer_name} key={lecturer_name}>{lecturer_name}</option>
@@ -154,47 +137,47 @@ export default class SubmitForm extends React.Component {
             <FormRow>
                 <label htmlFor='stream_url'>Video URL</label>
                 <input id='stream_url' name='stream_url' type='text' required placeholder="i.e. https://example.com/stream/master.m3u8" 
-                value={this.state.stream_url} 
-                onChange={this.handleChange} />
+                value={record.stream_url} 
+                onChange={handleChange} />
               </FormRow>
               <FormRow>
                 <label htmlFor="stream_title">Lecture Title</label>
                 <input id="stream_title" name="stream_title" type="text" required placeholder="i.e. What are kubernetes?" 
-                value={this.state.stream_title} 
-                onChange={this.handleChange} />
+                value={record.stream_title} 
+                onChange={handleChange} />
             </FormRow>
               <FormRow>
                   <label htmlFor="image_url">Image/Poster URL</label>
                   <input id="image_url" name="image_url" type="text" required placeholder="Please put url for thumbnail/poster image" 
-                  value={this.state.image_url} 
-                  onChange={this.handleChange} />
+                  value={record.image_url} 
+                  onChange={handleChange} />
               </FormRow>
               <RadioButton>
                   <legend>Type of content</legend>
                   <input type="radio" id="live" name="content_type" value="live" 
-                  checked={this.state.content_type === 'live'}
-                  onChange={this.handleChange}/>
+                  checked={content_type === 'live'}
+                  onChange={(e) => { setContentType(e.target.value) }}/>
                   <label htmlFor="live" className="radio-label">Live</label>
                   <input type="radio" id="vod" name="content_type" value="vod" 
-                  checked={this.state.content_type === 'vod'}
-                  onChange={this.handleChange}/>
+                  checked={content_type === 'vod'}
+                  onChange={(e) => { setContentType(e.target.value) }}/>
                   <label htmlFor="vod" className="radio-label">VoD</label>
               </RadioButton>
-              {this.state.content_type === 'live' && 
+              {content_type === 'live' && 
               <div>
               <RadioButton>
               <legend>Which track?</legend>
               <input type="radio" id="track1" name="track_num" value="1" 
-              checked={this.state.track_num === '1'}
-              onChange={this.handleChange} />
+              checked={track_num === "1" }
+              onChange={(e) => { setTrackNum(e.target.value) }}/>
               <label htmlFor="track1" className="radio-label">1</label>
               <input type="radio" id="track2" name="track_num" value="2" 
-              checked={this.state.track_num === '2'}
-              onChange={this.handleChange} />
+              checked={track_num === "2" }
+              onChange={(e) => { setTrackNum(e.target.value) }}/>
               <label htmlFor="track2" className="radio-label">2</label>
               <input type="radio" id="track3" name="track_num" value="3" 
-              checked={this.state.track_num === '3'}
-              onChange={this.handleChange} />
+              checked={track_num === "3" }
+              onChange={(e) => { setTrackNum(e.target.value) }}/>
               <label htmlFor="track3" className="radio-label">3</label>
               </RadioButton>
               </div>
@@ -202,5 +185,4 @@ export default class SubmitForm extends React.Component {
               <input type="submit" value="Submit"/>
         </Form>
         )
-    }
 }
