@@ -4,7 +4,7 @@ import LectureItemVod from './lecturesItemVod';
 
 export default class LecturesListVod extends React.Component {
     state = {
-        vodLibrary: []
+        vodMovies: []
     }
     componentDidMount() {
         database.ref('vod-library').on('value', (snapshot) => {
@@ -17,14 +17,15 @@ export default class LecturesListVod extends React.Component {
                     })
                 })
             }
-            this.setState({vodLibrary: [...lectures]})
+            this.setState({vodMovies: [...lectures]})
     }, (err) => {
         alert(err)
         })
 }
     render() {
+        const { vodMovies } = this.state;
         return (
-            <table id="vod-list">
+            <table>
       <thead>
         <tr>
           <th>Lp.</th>
@@ -36,7 +37,7 @@ export default class LecturesListVod extends React.Component {
         </tr>
       </thead>
       <tbody>
-        {this.state.vodLibrary.map((item, index) => (
+        {vodMovies.map((item, index) => (
         <LectureItemVod key={item.id} lecture={item} index={index}/>
         ))}
       </tbody>

@@ -4,7 +4,7 @@ import LectureItemLive from './lecturesItemLive';
 
 export default class LecturesListLive extends React.Component {
     state = {
-        liveLibrary: []
+        liveMovies: []
     }
     componentDidMount() {
         database.ref('live-library').on('value', (snapshot) => {
@@ -14,15 +14,16 @@ export default class LecturesListLive extends React.Component {
                     id: childSnap.key,
                     ...childSnap.val()
                 })
-                this.setState({liveLibrary: [...lectures]})
+                this.setState({liveMovies: [...lectures]})
         })
     }, (err) => {
         alert(err)
         })
     }
     render() {
+        const { liveMovies } = this.state;
         return (
-            <table id="live-list">
+            <table>
             <thead>
               <tr>
                 <th>track_id</th>
@@ -32,7 +33,7 @@ export default class LecturesListLive extends React.Component {
               </tr>
             </thead>
             <tbody>
-            {this.state.liveLibrary.map((item) => (
+            {liveMovies.map((item) => (
                 <LectureItemLive key={item.id} lecture={item} />
             ))}
             </tbody>
