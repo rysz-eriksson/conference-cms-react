@@ -8,7 +8,7 @@ export const handleError = (err) => {
   console.log(err)
 } 
 
-export default () => {
+export default ({handleRespAction}) => {
   const [ track_num, setTrackNum ] = useState('1')
   const [ content_type, setContentType ] = useState('vod')
   const [ record, setRecord ] = useState({})
@@ -29,9 +29,12 @@ export default () => {
       database.ref('vod-library').push(record)
       .then(() => {
         clearState()
+        handleRespAction('success')
+
       })
       .catch((err) => {
-        handleError(err)
+        handleRespAction('error')
+        console.log(err)
       })
     } else {
       database.ref(`live-library/${track_num}`).set({
@@ -41,9 +44,11 @@ export default () => {
       })
       .then(() => {
         clearState()
+        handleRespAction('success')
       })
       .catch((err) => {
-        handleError(err)
+        handleRespAction('error')
+        console.log(err)
       })
     }
   }
