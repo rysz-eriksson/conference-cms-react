@@ -40,13 +40,3 @@ thead {
 td:first-of-type {
   text-align: center;
 }
-
-button.delete {
-  padding: 5px;
-  background-color: white;
-  cursor: pointer;
-}
-
-button.delete:focus {
-  outline-color: #f18700;
-}
