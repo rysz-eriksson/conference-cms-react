@@ -3,71 +3,6 @@ import predefinedLect from '../data/lectures-list';
 import database from '../firebase/firebase';
 import styled from 'styled-components';
 
-  const Form = styled.form`
-  width: 600px;
-  margin: 40px auto;
-  border: #f18700 solid 2px;
-  border-radius: 3px;
-  display: flex;
-  flex-direction: column;
-
-  input[type='submit']{
-    font-size: 16px;
-    font-weight: bold;
-    width: 100px;
-    text-align: center;
-    margin: 40px auto;
-    color:  #f18700;
-  
-    background-color: white;
-    border: solid 1px  #f18700;
-    border-radius: 3px;
-  
-    padding: 10px 23px;
-    cursor: pointer;
-    transition: .15s ease-in-out 
-  }
-
-  input[type='submit']:active {
-    transform: scale(0.99);
-  }
-
-  input[type='submit']:hover {
-    background-color: #f18700;
-    color: white;
-  }
-
-  input[type='submit']:focus {
-    outline-color: rgba(190, 106, 0, 0.5);
-  }`
-
-  const FormRow = styled.div`
-  margin: 40px 40px 0 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content:flex-start;
-
-  input[type='text'],
-  select {
-    background-color: #FFFFFF;
-    border: 1px solid #D6D9DC;
-    width: 250px;
-    height: initial;
-    border-radius: 3px;
-    width: 100%;
-    padding: 7px;
-    font-size: 14px;
-  }`
-
-  const RadioButton = styled.fieldset`
-  display: block;
-  border: none;
-  margin: 40px auto 0 240px;
-
-  input[type="radio"] {
-    margin: 5px;
-}`
-
 export const handleError = (err) => {
   alert('Action failed, see details in the console')
   console.log(err)
@@ -186,3 +121,68 @@ export default () => {
         </Form>
         )
 }
+
+const Form = styled.form`
+  width: 600px;
+  margin: 40px auto;
+  border: #f18700 solid 2px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+
+  input[type='submit']{
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    text-align: center;
+    margin: 40px auto;
+    color:  #f18700;
+  
+    background-color: white;
+    border: solid 1px  #f18700;
+    border-radius: 3px;
+  
+    padding: 10px 23px;
+    cursor: pointer;
+    transition: .15s ease-in-out 
+  }
+
+  input[type='submit']:active {
+    transform: scale(0.99);
+  }
+
+  input[type='submit']:hover {
+    background-color: #f18700;
+    color: white;
+  }
+
+  input[type='submit']:focus {
+    outline-color: rgba(190, 106, 0, 0.5);
+  }`
+
+  const FormRow = styled.div`
+  margin: 40px 40px 0 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+
+  input[type='text'],
+  select {
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    width: 250px;
+    height: initial;
+    border-radius: 3px;
+    width: 100%;
+    padding: 7px;
+    font-size: 14px;
+  }`
+
+  const RadioButton = styled.fieldset`
+  display: block;
+  border: none;
+  margin: 40px auto 0 240px;
+
+  input[type="radio"] {
+    margin: 5px;
+}`

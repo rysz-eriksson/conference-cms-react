@@ -1,10 +1,7 @@
 import React from 'react';
-import useData from '../hooks/useData';
 import LectureItemVod from './lecturesItemVod';
 
-export default () => {
-
-  const vodMovies = useData('live-library')
+export default ({movies}) => {
 
   return (
         <table>
@@ -19,7 +16,7 @@ export default () => {
     </tr>
   </thead>
   <tbody>
-    {vodMovies.map((item, index) => (
+    {movies.map((item, index) => (
     <LectureItemVod key={item.id} lecture={item} index={index}/>
     ))}
   </tbody>
