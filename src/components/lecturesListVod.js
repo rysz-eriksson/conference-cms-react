@@ -1,29 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import database from '../firebase/firebase';
+import React from 'react';
+import useData from '../hooks/useData';
 import LectureItemVod from './lecturesItemVod';
 
 export default () => {
 
-   const [vodMovies, setMovies] = useState([])
+  const vodMovies = useData('live-library')
 
-    useEffect(() => {
-        database.ref('vod-library').on('value', (snapshot) => {
-            let lectures = []
-            if (snapshot.val() !== null) {
-                snapshot.forEach((childSnap) => {
-                    lectures.push({
-                        id: childSnap.key,
-                        ...childSnap.val()
-                    })
-                })
-            }
-            setMovies([...lectures])
-    }, (err) => {
-        alert(err)
-        })
-    }, [])
-
-    return (
+  return (
         <table>
   <thead>
     <tr>
