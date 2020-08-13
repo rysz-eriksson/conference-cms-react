@@ -1,7 +1,7 @@
 import React from 'react';
 import LectureItemVod from './lecturesItemVod';
 
-export default ({movies}) => {
+export default ({movies, handleRespAction}) => {
 
   return (
         <table>
@@ -17,7 +17,7 @@ export default ({movies}) => {
   </thead>
   <tbody>
     {movies.map((item, index) => (
-    <LectureItemVod key={item.id} lecture={item} index={index}/>
+    <LectureItemVod key={item.id} lecture={item} index={index} handleRespAction={handleRespAction} />
     ))}
   </tbody>
 </table>

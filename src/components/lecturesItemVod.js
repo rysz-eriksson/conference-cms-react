@@ -1,6 +1,5 @@
 import React from 'react'
 import database from '../firebase/firebase';
-import { handleError } from './submitForm';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -12,12 +11,16 @@ const Button = styled.button`
     }
 `
 
-export default ({ lecture, index }) => {
+export default ({ lecture, index, handleRespAction }) => {
 
     const onDeleteAction = () => {
         database.ref(`vod-library/${lecture.id}`).remove()
+        .then(() => {
+            handleRespAction('success')
+        })
         .catch((err) => {
-            handleError(err)
+            handleRespAction('error')
+            console.error(err)
         })
     }
     return (

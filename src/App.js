@@ -19,17 +19,17 @@ function App() {
   const handleRespAction = (message) => {
     setInfo(message);
     setShowAlert(true);
-    setTimeout(changeShowAlert, 2000)
+    setTimeout(changeShowAlert, 3000)
   }
 
   return (
     <div className="App">
+      <SubmitForm handleRespAction={handleRespAction}/>
       {showAlert && <Alert severity={info}>
       {info === 'success' ? 'Action succesfully completed!' : 'Something went wrong - please see the deatils in teh console'}
       </Alert>}
-      <SubmitForm handleRespAction={handleRespAction}/>
       <LecturesListLive movies={liveMovies} />
-      <LecturesListVod movies={vodMovies}/>
+      <LecturesListVod movies={vodMovies} handleRespAction={handleRespAction} />
     </div>
   );
 }

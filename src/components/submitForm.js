@@ -3,11 +3,6 @@ import predefinedLect from '../data/lectures-list';
 import database from '../firebase/firebase';
 import styled from 'styled-components';
 
-export const handleError = (err) => {
-  alert('Action failed, see details in the console')
-  console.log(err)
-} 
-
 export default ({handleRespAction}) => {
   const [ track_num, setTrackNum ] = useState('1')
   const [ content_type, setContentType ] = useState('vod')
@@ -34,7 +29,7 @@ export default ({handleRespAction}) => {
       })
       .catch((err) => {
         handleRespAction('error')
-        console.log(err)
+        console.error(err)
       })
     } else {
       database.ref(`live-library/${track_num}`).set({
@@ -48,7 +43,7 @@ export default ({handleRespAction}) => {
       })
       .catch((err) => {
         handleRespAction('error')
-        console.log(err)
+        console.error(err)
       })
     }
   }
