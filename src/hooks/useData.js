@@ -13,9 +13,9 @@ export default function useData(library_type) {
                         id: childSnap.key,
                         ...childSnap.val()
                     })
-                    setMovies([...lectures])
                 })
-        }
+            }
+            setMovies([...lectures])
     }, (err) => {
         alert(err)
         })
