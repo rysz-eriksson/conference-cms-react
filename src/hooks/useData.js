@@ -7,13 +7,15 @@ export default function useData(library_type) {
     useEffect(() => {
         database.ref(library_type).on('value', (snapshot) => {
             let lectures = []
-            snapshot.forEach((childSnap) => {
-                lectures.push({
-                    id: childSnap.key,
-                    ...childSnap.val()
+            if (snapshot.val() !== null) {
+                snapshot.forEach((childSnap) => {
+                    lectures.push({
+                        id: childSnap.key,
+                        ...childSnap.val()
+                    })
+                    setMovies([...lectures])
                 })
-                setMovies([...lectures])
-        })
+        }
     }, (err) => {
         alert(err)
         })
