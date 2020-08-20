@@ -6,7 +6,7 @@ import LecturesListLive from './lecturesListLive';
 import SignOutForm from './signOutForm';
 import Alert from '@material-ui/lab/Alert'
 
-export default () => {
+export default (props) => {
   const [showAlert, setShowAlert] = useState(false)
   const [info, setInfo] = useState()
   const liveMovies = useData('live-library')

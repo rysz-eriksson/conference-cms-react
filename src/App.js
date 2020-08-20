@@ -5,8 +5,14 @@ import SignInPage from './components/signInPage';
 import './App.css';
 
 const App = () => {
-  const [authUser, setAuthUser] = useState()
+  const [authUser, setAuthUser] = useState(null)
 
+  let loadedComponent 
+  if (authUser === 'on') {
+    loadedComponent = <MainPage />
+  } else if (authUser === 'off') {
+    loadedComponent = <SignInPage />
+  }
   useEffect(() => {
     const unsubscribe = authChange((user) => {
       if (user) {
@@ -21,7 +27,7 @@ const App = () => {
   }, [])
   return (
     <div>
-      {authUser === 'off' ? <SignInPage /> : <MainPage /> }
+      {authUser ? loadedComponent : <p>Loading</p>}
     </div>
   )
 }
