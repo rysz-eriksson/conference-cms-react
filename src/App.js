@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-// import { auth } from '../firebase/firebase';
 import { authChange } from './services/firebase-api';
-import Navigation from './components/navigation'
+import MainPage from './components/mainPage';
+import SignInPage from './components/signInPage';
 import './App.css';
 
 const App = () => {
-  const [authUser, setAuthUser] = useState(null)
+  const [authUser, setAuthUser] = useState()
 
   useEffect(() => {
-    const unsubscribe = authChange(setAuthUser);
+    const unsubscribe = authChange((user) => {
+      if (user) {
+        setAuthUser('on')
+      } else {
+        setAuthUser('off')
+      }
+    });
     return () => {
       unsubscribe()
     }
   }, [])
   return (
-    <Router>
-      <Navigation authUser={authUser} />
-    </Router>
+    <div>
+      {authUser === 'off' ? <SignInPage /> : <MainPage /> }
+    </div>
   )
 }
 
