@@ -1,37 +1,24 @@
-import React, {useState} from 'react';
-import useData from './hooks/useData'
-import SubmitForm from './components/submitForm';
-import LecturesListVod from './components/lecturesListVod';
-import LecturesListLive from './components/lecturesListLive';
-import Alert from '@material-ui/lab/Alert'
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+// import { auth } from '../firebase/firebase';
+import { authChange } from './services/firebase-api';
+import Navigation from './components/navigation'
 import './App.css';
 
-function App() {
-  const [showAlert, setShowAlert] = useState(false)
-  const [info, setInfo] = useState()
-  const liveMovies = useData('live-library')
-  const vodMovies = useData('vod-library')
+const App = () => {
+  const [authUser, setAuthUser] = useState(null)
 
-  const changeShowAlert = () => {
-    setShowAlert(false)
-  }
-  
-  const handleRespAction = (message) => {
-    setInfo(message);
-    setShowAlert(true);
-    setTimeout(changeShowAlert, 3000)
-  }
-
+  useEffect(() => {
+    const unsubscribe = authChange(setAuthUser);
+    return () => {
+      unsubscribe()
+    }
+  }, [])
   return (
-    <div className="App">
-      <SubmitForm handleRespAction={handleRespAction}/>
-      {showAlert && <Alert severity={info}>
-      {info === 'success' ? 'Action succesfully completed!' : 'Something went wrong - please see the deatils in teh console'}
-      </Alert>}
-      <LecturesListLive movies={liveMovies} />
-      <LecturesListVod movies={vodMovies} handleRespAction={handleRespAction} />
-    </div>
-  );
+    <Router>
+      <Navigation authUser={authUser} />
+    </Router>
+  )
 }
 
 export default App;
