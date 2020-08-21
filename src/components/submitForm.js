@@ -117,56 +117,57 @@ export default ({handleRespAction}) => {
               </RadioButton>
               </div>
             }
-              <input type="submit" value="Submit"/>
+              <Button type='submit'>Submit</Button>
+
         </Form>
         )
 }
 
-const Form = styled.form`
+export const Form = styled.form`
   width: 600px;
   margin: 40px auto;
   border: #f18700 solid 2px;
   border-radius: 3px;
   display: flex;
   flex-direction: column;
+`
 
-  input[type='submit']{
-    font-size: 16px;
-    font-weight: bold;
-    width: 100px;
-    text-align: center;
-    margin: 40px auto;
-    color:  #f18700;
-  
-    background-color: white;
-    border: solid 1px  #f18700;
-    border-radius: 3px;
-  
-    padding: 10px 23px;
-    cursor: pointer;
-    transition: .15s ease-in-out 
-  }
+export const Button = styled.button`
+  font-size: 16px;
+  font-weight: bold;
+  width: fit-content;
+  text-align: center;
+  margin: 40px auto;
+  color:  #f18700;
 
-  input[type='submit']:active {
+  background-color: white;
+  border: solid 1px  #f18700;
+  border-radius: 3px;
+
+  padding: 10px 23px;
+  cursor: pointer;
+  transition: .15s ease-in-out;
+
+  &:active {
     transform: scale(0.99);
   }
 
-  input[type='submit']:hover {
+  &:hover {
     background-color: #f18700;
     color: white;
   }
 
-  input[type='submit']:focus {
+  &:focus {
     outline-color: rgba(190, 106, 0, 0.5);
   }`
 
-  const FormRow = styled.div`
+export const FormRow = styled.div`
   margin: 40px 40px 0 40px;
   display: flex;
   flex-direction: row;
   justify-content:flex-start;
 
-  input[type='text'],
+  input,
   select {
     background-color: #FFFFFF;
     border: 1px solid #D6D9DC;
